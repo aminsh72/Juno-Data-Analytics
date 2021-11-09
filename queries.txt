@@ -1,4 +1,3 @@
-WITH t1 AS (
 SELECT
   m.player_id,
   MAX(day) AS day,
@@ -18,8 +17,3 @@ GROUP BY
   location,
   age,
   system
-)
-SELECT 
-*
-FROM t1
-WHERE 30<(day-joined)
