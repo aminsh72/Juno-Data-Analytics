@@ -1,0 +1,25 @@
+WITH t1 AS (
+SELECT
+  m.player_id,
+  MAX(day) AS day,
+  joined,
+  location,
+  age,
+  system
+FROM
+  `juno-college.GameCompanyDataset.matches_info` m
+JOIN
+  `juno-college.GameCompanyDataset.player_info` p
+ON
+  m.player_id = p.player_id
+GROUP BY
+  player_id,
+  joined,
+  location,
+  age,
+  system
+)
+SELECT 
+*
+FROM t1
+WHERE 30<(day-joined)
